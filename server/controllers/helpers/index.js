@@ -10,4 +10,12 @@ async function createToken(user_id) {
   }
 }
 
-module.exports = { createToken };
+async function authenticate(req, res, next) {
+  const token = req.cookies.token;
+
+  console.log(token);
+
+  next();
+}
+
+module.exports = { createToken, authenticate };

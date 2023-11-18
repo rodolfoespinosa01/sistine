@@ -11,7 +11,7 @@ const user_controller = {
       const token = await createToken(user._id);
 
       // Authenticate/Log In User
-      res.cookie("cookieToken", token, {
+      res.cookie("token", token, {
         maxAge: 2 * 60 * 1000, //2 minutes
         httpOnly: true,
       });
@@ -23,6 +23,8 @@ const user_controller = {
       });
     }
   },
+
+  protected(req, res) {},
 };
 
 module.exports = user_controller;
