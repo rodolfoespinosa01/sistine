@@ -29,13 +29,13 @@ const userSchema = new Schema(
         return is_valid;
       },
     },
-    // toJSON: {
-    //   transform(_, user) {
-    //     delete user.__v;
-    //     delete user.password;
-    //     return user;
-    //   },
-    // },
+    toJSON: {
+      transform(_, user) {
+        delete user.__v;
+        delete user.password;
+        return user;
+      },
+    },
   }
 );
 
