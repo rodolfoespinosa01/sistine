@@ -3,8 +3,8 @@ import NavbarComponent from "./components/Navbar";
 import { Container } from 'react-bootstrap'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Cancel from './pages/Cancel'
-import Store from './pages/Store'
-import Success from './pages/Success'
+import ArtStore from './pages/ArtStore'
+import PaymentComplete from './pages/PaymentComplete'
 
 
 // localhost:3000 -> Home
@@ -17,8 +17,8 @@ function App() {
     <NavbarComponent></NavbarComponent>
     <BrowserRouter>
       <Routes>
-        <Route index element={<Store />} />
-        <Route path="success" element={<Success />} />
+        <Route index element={<ArtStore />} />
+        <Route path="paymentcomplete" element={<PaymentComplete />} />
         <Route path="cancel" element={<Cancel />} />
       </Routes>
     </BrowserRouter>
