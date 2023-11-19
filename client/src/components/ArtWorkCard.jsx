@@ -5,8 +5,8 @@ import { useContext } from 'react';
 function ArtCard(props) { // props.artWork is the artWork we are selling and gives us access to all the info of the artWork
   const artWork = props.artWork;
   const cart = useContext(CartContext);
-  const artWorkQuantity = cart.getArtWorkQuantity(artWork.id)
-  console.log(cart.items);
+  const artWorkQuantity = cart.getArtWorkQuantity(artWork.id) //allow us to see if we have an item inside the cart
+
   return (
     <Card>
       <Card.Body>
