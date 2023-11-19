@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "Ultraviolete Sunset Painting",
+        "priceInCents": 10000
+    },
+    {
+        "id": 2,
+        "name": "Blue Mountains Painting",
+        "priceInCents": 20000
+    }
+]
