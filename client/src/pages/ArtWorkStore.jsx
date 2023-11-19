@@ -7,6 +7,8 @@ import ArtWorkCard from '../components/ArtWorkCard'
 function Store() {
   return (
     <>
+
+
       <h1 align="center" className="p-3">Welcome to the store!</h1>
 
       {/* show one column in a small screen and 3 in a medium screen */}

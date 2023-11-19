@@ -1,5 +1,7 @@
 const User = require("../models/User");
 
+const { verify } = require("jsonwebtoken");
+
 const { createToken } = require("./helpers");
 
 const user_controller = {
@@ -18,9 +20,17 @@ const user_controller = {
 
       res.json(user);
     } catch (err) {
-      console.log(err);
+      let message;
+
+      if (err.code === 11000) {
+        message = "That email address is already in use.";
+      } else {
+        message = err.message;
+      }
+
       res.status(403).send({
-        message: err.message,
+        code: err.code,
+        message,
       });
     }
   },
@@ -48,6 +58,7 @@ const user_controller = {
     res.cookie("token", token, {
       maxAge: 60 * 60 * 1000,
       httpOnly: true,
+      secure: process.env.PORT ? true : false,
     });
 
     res.json(user);
@@ -61,11 +72,29 @@ const user_controller = {
     });
   },
 
+  async authenticate(req, res) {
+    const token = req.cookies.token;
+
+    if (!token) return res.json({ user: null });
+
+    try {
+      const data = await verify(token, process.env.JWT_SECRET, {
+        maxAge: "1hr",
+      });
+
+      const user = await User.findById(data.user_id);
+
+      res.json({ user });
+    } catch (error) {
+      res.json({ user: null });
+    }
+  },
+
   logout(req, res) {
     res.clearCookie("token");
 
     res.json({
-      message: "Logged Out Successfully",
+      message: "Logged out successfully!",
     });
   },
 };
