@@ -13,4 +13,6 @@ router.post("/login", user_controller.login);
 // Protected test route
 router.get("/protected", isAuthenticated, user_controller.protected);
 
+router.get("/logout", user_controller.logout);
+
 module.exports = router;

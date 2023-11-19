@@ -1,4 +1,5 @@
 const { sign, verify } = require("jsonwebtoken");
+const User = require("../../models/User");
 
 async function createToken(user_id) {
   try {

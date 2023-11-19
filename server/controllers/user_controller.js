@@ -60,6 +60,14 @@ const user_controller = {
       authenticated: true,
     });
   },
+
+  logout(req, res) {
+    res.clearCookie("token");
+
+    res.json({
+      message: "Logged Out Successfully",
+    });
+  },
 };
 
 module.exports = user_controller;
