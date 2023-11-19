@@ -10,12 +10,27 @@ async function createToken(user_id) {
   }
 }
 
-async function authenticate(req, res, next) {
+async function isAuthenticated(req, res, next) {
   const token = req.cookies.token;
 
-  console.log(token);
+  if (!token)
+    return res.status(401).send({
+      message: "Not Authorized",
+    });
 
-  next();
+  try {
+    const data = await verify(token, process.env.JWT_SECRET, {
+      maxAge: "1hr",
+    });
+
+    req.user = await User.findById(data.user_id);
+
+    next();
+  } catch (error) {
+    res.status(401).send({
+      message: "Your token is invalid.",
+    });
+  }
 }
 
-module.exports = { createToken, authenticate };
+module.exports = { createToken, isAuthenticated };
