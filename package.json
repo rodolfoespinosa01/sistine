@@ -1,0 +1,25 @@
+{
+  "name": "sistine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:client": "cd ./client && npm run dev",
+    "dev:server": "cd ./server && npm run start:dev",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "build": "cd ./client && npm run build",
+    "install:client": "cd ./client && npm i",
+    "install:server": "cd ./server && npm i",
+    "install": "npm run install:client && npm run install:server",
+    "start": "cd ./server && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
