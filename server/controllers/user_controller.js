@@ -3,6 +3,9 @@ const User = require("../models/User");
 const { verify } = require("jsonwebtoken");
 
 const { createToken } = require("./helpers");
+const stripeKey =
+  "sk_test_51OEFlnCJ8PraGfLbmp0E9NKoPZtliGua7uF2EgCDA2CHGdHNfpK5ZI4go2sSVpiMmr4y9VQjkT7dlqzKsv2RCF3Y00XWNuVYxm";
+const stripe = require("stripe")(stripeKey);
 
 const user_controller = {
   // Register a user
@@ -87,6 +90,33 @@ const user_controller = {
       res.json({ user });
     } catch (error) {
       res.json({ user: null });
+    }
+  },
+
+  async checkout(req, res) {
+    try {
+      const items = req.body.items;
+      let lineItems = [];
+      items.forEach((item) => {
+        lineItems.push({
+          price: item.id,
+          quantity: item.quantity,
+        });
+      });
+
+      const session = await stripe.checkout.sessions.create({
+        line_items: lineItems,
+        mode: "payment",
+        success_url: "http://localhost:5173/paymentcomplete",
+        cancel_url: "http://localhost:5173/cancel",
+      });
+
+      res.json({
+        url: session.url,
+      });
+    } catch (error) {
+      console.error("Checkout error:", error.message);
+      res.status(500).json({ error: "Error during checkout." });
     }
   },
 

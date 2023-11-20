@@ -9,8 +9,10 @@ function ArtCard(props) { // props.artWork is the artWork we are selling and giv
 
   return (
     <Card>
+
       <Card.Body>
         <Card.Title>{artWork.title}</Card.Title>
+        <Card.Img src={artWork.photo} alt={artWork.title} />
         <Card.Text>${artWork.price}</Card.Text>
         {artWorkQuantity > 0 ?
           <>

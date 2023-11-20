@@ -14,7 +14,6 @@ import NavbarComponent from "./components/Navbar";
 
 // import pages
 import Auth from './pages/Auth'
-import Landing from './pages/Landing'
 import NotFound from './pages/NotFound'
 import PaymentComplete from './pages/PaymentComplete'
 import ArtWorkStore from './pages/ArtWorkStore'

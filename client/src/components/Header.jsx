@@ -21,7 +21,11 @@ function Header({ user, setUser }) {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/">Sistine App</Navbar.Brand>
+        <Navbar.Brand href="/"><img
+          src="/img/logo.png"
+          alt="Logo"
+          style={{ width: '100px', height: 'auto' }}  // Adjust the width as needed
+        /></Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
