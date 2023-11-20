@@ -13,6 +13,9 @@ router.post("/login", user_controller.login);
 // Protected test route
 router.get("/protected", isAuthenticated, user_controller.protected);
 
+// Checkout route
+router.post("/checkout", isAuthenticated, user_controller.checkout);
+
 router.get("/authenticate", user_controller.authenticate);
 
 router.get("/logout", user_controller.logout);

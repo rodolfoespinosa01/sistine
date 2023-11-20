@@ -2,19 +2,76 @@
 
 const artWorksArray = [
   {
-    id: "1",
-    title: "Artwork",
+    id: "price_1OEFuYCJ8PraGfLbnOtDqHhz",
+    title: "Artwork1",
     price: 764.99,
+    photo: "/img/400x600.svg",
   },
   {
-    id: "2",
+    id: "price_1OEFvdCJ8PraGfLb7CftN25T",
     title: "Artwork2",
     price: 468.99,
+    photo: "/img/400x600.svg",
   },
   {
-    id: "3",
+    id: "price_1OEFwACJ8PraGfLbK8RtwYvj",
     title: "Artwork3",
     price: 445.99,
+    photo: "/img/400x600.svg",
+  },
+  {
+    id: "4",
+    title: "Artwork4",
+    price: 764.99,
+    photo: "/img/400x600.svg",
+  },
+  {
+    id: "5",
+    title: "Artwork5",
+    price: 468.99,
+    photo: "/img/400x600.svg",
+  },
+  {
+    id: "6",
+    title: "Artwork6",
+    price: 445.99,
+    photo: "/img/400x600.svg",
+  },
+  {
+    id: "7",
+    title: "Artwork7",
+    price: 764.99,
+    photo: "/img/400x600.svg",
+  },
+  {
+    id: "8",
+    title: "Artwork8",
+    price: 468.99,
+    photo: "/img/400x600.svg",
+  },
+  {
+    id: "9",
+    title: "Artwork9",
+    price: 405.99,
+    photo: "/img/400x600.svg",
+  },
+  {
+    id: "10",
+    title: "Artwork10",
+    price: 164.99,
+    photo: "/img/400x600.svg",
+  },
+  {
+    id: "11",
+    title: "Artwork11",
+    price: 238.99,
+    photo: "/img/400x600.svg",
+  },
+  {
+    id: "12",
+    title: "Artwork12",
+    price: 45.99,
+    photo: "/img/400x600.svg",
   },
 ];
 

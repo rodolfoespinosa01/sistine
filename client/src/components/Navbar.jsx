@@ -11,6 +11,23 @@ function NavbarComponent() {
   const handleClose = () => setShow(false); //create function to handle the hide
   const handleShow = () => setShow(true); //create function to handle the show
 
+  const checkout = async () => {
+    await fetch('http://localhost:3553/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ items: cart.items })
+    }).then((response) => {
+      return response.json();
+    }).then((response) => {
+      if (response.url) {
+        window.location.assign(response.url);
+      }
+    })
+
+  }
+
   const artWorksCount = cart.items.reduce((sum, artWork) => sum + artWork.quantity, 0);
   return (
     <>
@@ -44,7 +61,7 @@ function NavbarComponent() {
 
               <h1>Total: {cart.getTotalCost().toFixed(2)}</h1>
 
-              <Button variant="success">
+              <Button variant="success" onClick={checkout}>
                 Purchase items!
               </Button>
 
