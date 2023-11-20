@@ -1,5 +1,5 @@
 
-import { Button, Container, Navbar, Modal, ModalBody } from 'react-bootstrap'
+import { Button, Navbar, Modal, ModalBody } from 'react-bootstrap'
 import { useContext, useState } from 'react'
 import { CartContext } from '../CartContext'
 import CartArtWork from './CartArtWork'
@@ -12,7 +12,7 @@ function NavbarComponent() {
   const handleShow = () => setShow(true); //create function to handle the show
 
   const checkout = async () => {
-    await fetch('http://localhost:3553/checkout', {
+    await fetch('/auth/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
