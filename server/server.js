@@ -25,6 +25,13 @@ app.use(cookieParser());
 // Load Routes
 app.use("/auth", user_routes);
 
+// Trigger react router to handle all routing outside of our auth routes
+if (is_prod) {
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+  });
+}
+
 // Share dist when in production
 if (is_prod) {
   app.use(express.static(path.join(__dirname, "../client/dist")));
