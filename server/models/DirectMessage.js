@@ -2,18 +2,22 @@ const { Schema, model } = require("mongoose");
 
 const directMessageSchema = new Schema({
     subject: {
-        type: String
+        type: String,
+        required: true
     },
     content: {
-        type: String
+        type: String,
+        required: true
     },
     sender: {
         type: Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
+        required: true
     },
     recipient: {
         type: Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
+        required: true
     },
     origin: { // First message in a given interaction
         type: Schema.Types.ObjectId,
@@ -23,6 +27,8 @@ const directMessageSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "DirectMessage"
     }]
+}, {
+    timestamps: true
 })
 
 const Message = model("DirectMessage", directMessageSchema)
