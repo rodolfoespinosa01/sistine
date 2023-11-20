@@ -48,17 +48,19 @@ const userSchema = new Schema(
             async validatePass(formPassword) {
                 const is_valid = await compare(formPassword, this.password);
 
-                return is_valid;
-            },
-        },
-    //   toJSON: {
-    //       transform(_, user) {
-    //           delete user.__v;
-    //           delete user.password;
-    //           return user;
-    //       },
-    //   },
-    }
+
+
+        return is_valid;
+      },
+    },
+    toJSON: {
+      transform(_, user) {
+        delete user.__v;
+        delete user.password;
+        return user;
+      },
+    },
+  }
 );
 
 userSchema.pre("save", async function (next) {
