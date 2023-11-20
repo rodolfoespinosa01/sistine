@@ -4,6 +4,8 @@ const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3553;
+const is_prod = process.env.NODE_ENV === "production";
+const path = require("path");
 
 require("dotenv").config();
 
@@ -23,32 +25,10 @@ app.use(cookieParser());
 // Load Routes
 app.use("/auth", user_routes);
 
-// // Setup checkout request
-// app.post("/checkout", async (req, res) => {
-//   console.log(req.body);
-
-//   const items = req.body.items;
-//   let lineItems = [];
-//   items.forEach((item) => {
-//     lineItems.push({
-//       price: item.id,
-//       quantity: item.quantity,
-//     });
-//   });
-
-//   const session = await stripe.checkout.session.create({
-//     line_items: lineItems,
-//     mode: "payment",
-//     success_url: "http://localhost:5173/paymentcomplete",
-//     cancel_url: "http://localhost:5173/cancel",
-//   });
-
-//   res.send(
-//     JSON.stringify({
-//       url: session.url,
-//     })
-//   );
-// });
+// Share dist when in production
+if (is_prod) {
+  app.use(express.static(path.join(__dirname, "../client/dist")));
+}
 
 // Validate that the mongoose connection is complete
 db.once("open", () => {
