@@ -19,6 +19,11 @@ app.use(express.static("public"));
 // Open channel for JSON to be sent from client
 app.use(express.json());
 
+// Share dist when in production
+if (is_prod) {
+  app.use(express.static(path.join(__dirname, "../client/dist")));
+}
+
 // Open cookie middleware channel so we can view cookies on the request object
 app.use(cookieParser());
 
@@ -30,11 +35,6 @@ if (is_prod) {
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/dist/index.html"));
   });
-}
-
-// Share dist when in production
-if (is_prod) {
-  app.use(express.static(path.join(__dirname, "../client/dist")));
 }
 
 // Validate that the mongoose connection is complete
