@@ -59,13 +59,13 @@ function App() {
 
               <Routes>
 
-                <Route path="/" element={<Landing user={user} />} />
+
 
                 <Route path="/register" element={<Auth isLogin={false} setUser={setUser} />} />
                 <Route path="/login" element={<Auth isLogin={true} setUser={setUser} />} />
 
                 {/* indicate what you will show based on what link the user is on */}
-                <Route path="/artstore" element={<ArtWorkStore user={user} />} />
+                <Route path="/" element={<ArtWorkStore user={user} />} />
                 <Route path="/paymentcomplete" element={<PaymentComplete />} />
                 <Route path="/cancel" element={<Cancel />} />
 
