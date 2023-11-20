@@ -1,83 +1,27 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-
-import axios from 'axios'
-
-import Container from 'react-bootstrap/Container'
-
-import { Routes, Route } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-
-import CartProvider from './CartContext'
-
-import Header from './components/Header'
-import NavbarComponent from "./components/Navbar";
-
-// import pages
-import Auth from './pages/Auth'
-import NotFound from './pages/NotFound'
-import PaymentComplete from './pages/PaymentComplete'
-import ArtWorkStore from './pages/ArtWorkStore'
-import Cancel from './pages/Cancel'
-
-
-// localhost:3000 -> Home
-// localhost:3000/success -> Success -> Home
-
-
 
 function App() {
-  const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    axios.get('/auth/authenticate')
-      .then(res => {
-        setUser(res.data.user);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error.message || 'An error occurred during authentication');
-        setLoading(false);
-      });
-  }, []);
-
   return (
-
     <>
-      {loading ? (
-        <h3 className="d-flex justify-content-center align-items-center vh-100">Loading...</h3>
-      ) : (
-
-        <>
-          <Header user={user} setUser={setUser} />
-
-          <CartProvider>
-            <Container>
-              <NavbarComponent></NavbarComponent>
-
-              <Routes>
-
-
-
-                <Route path="/register" element={<Auth isLogin={false} setUser={setUser} />} />
-                <Route path="/login" element={<Auth isLogin={true} setUser={setUser} />} />
-
-                {/* indicate what you will show based on what link the user is on */}
-                <Route path="/" element={<ArtWorkStore user={user} />} />
-                <Route path="/paymentcomplete" element={<PaymentComplete />} />
-                <Route path="/cancel" element={<Cancel />} />
-
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-
-            </Container>
-          </CartProvider>
-
-        </>
-      )}
+      <div className="w-[1440px] h-[1700px] relative bg-white">
+  <img className="w-[431px] h-[400px] left-[160px] top-[535px] absolute shadow" src="https://via.placeholder.com/431x400" />
+  <div className="left-[183px] top-[230px] absolute text-center text-black text-[25px] font-normal font-['Alice'] tracking-[2.50px]">showcase & market your craft</div>
+  <img className="w-[523px] h-[552px] left-[757px] top-[535px] absolute shadow" src="https://via.placeholder.com/523x552" />
+  <img className="w-[523px] h-[552px] left-[757px] top-[535px] absolute shadow" src="https://via.placeholder.com/523x552" />
+  <img className="w-[523px] h-[552px] left-[757px] top-[535px] absolute shadow" src="https://via.placeholder.com/523x552" />
+  <img className="w-[544px] h-[211px] left-[736px] top-[1176px] absolute shadow" src="https://via.placeholder.com/544x211" />
+  <img className="w-[456px] h-[345px] left-[160px] top-[1042px] absolute shadow" src="https://via.placeholder.com/456x345" />
+  <div className="w-[460px] h-[74px] left-[155px] top-[156px] absolute text-center text-black text-[65px] font-normal font-['Alice'] tracking-[6.50px]">For Creatives</div>
+  <div className="w-[268px] h-10 left-[586px] top-[1583px] absolute text-center text-black text-[25px] font-normal font-['Alice'] tracking-[2.50px]">2023 Sistine & Co. </div>
+  <img className="w-[31px] h-[26px] left-[838px] top-[1583px] absolute" src="https://via.placeholder.com/31x26" />
+  <div className="w-[116px] h-[131px] pl-[76px] pr-3.5 pt-[103px] left-[139px] top-[1540px] absolute flex-col justify-end items-center inline-flex">
+    <img className="w-[26px] h-7 relative" src="https://via.placeholder.com/26x28" />
+  </div>
+  <div className="w-[285px] pl-[231px] pr-[30px] pt-7 pb-[5px] left-[1002px] top-[1586px] absolute justify-end items-center inline-flex">
+    <img className="w-6 h-[23px] relative" src="https://via.placeholder.com/24x23" />
+  </div>
+</div>
     </>
   )
 }
 
-export default App;
+export default App
