@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .all-\[unset\] {
+      all: unset;
+    }
+  }
+  
+  :root {
+    --globalblack: rgba(0, 0, 0, 1);
+    --variable-collection-global-tan: rgba(242, 240, 236, 1);
+    --variable-collection-global-white: rgba(255, 255, 255, 1);
+  }
