@@ -35,7 +35,7 @@ function NavbarComponent() {
       <Navbar expand="sm">
         <Navbar.Brand href="/">For Creatives </Navbar.Brand>
         <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
+        <Navbar.Collapse className="justify-content-end ">
           <Button onClick={handleShow}>Cart ({artWorksCount})</Button>
         </Navbar.Collapse>
       </Navbar>
