@@ -1,12 +1,14 @@
+
 html, body, #root {
     height: 100%;
 }
 
 #root {
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 
 .container {
     flex: 1;
 }
+
