@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
-import Sistine_S_icon from '../images/Sistine_S_icon.png';
-import SistineBrush from '../images/SistineBrush.png';
+import Sistine_S_icon from '../../public/img/Sistine_S_icon.png';
+import SistineBrush from '../../public/img/SistineBrush.png';
 
 function Footer() {
     const myStyle = {
