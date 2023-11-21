@@ -13,6 +13,9 @@ const imageSchema = new Schema({
     },
     uploadedBy: {
         type: Schema.Types.ObjectId, ref: "User"
+    },
+    product: {
+        type: Schema.Types.ObjectId, ref: "ProductImage"
     }
 })
 

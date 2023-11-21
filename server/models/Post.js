@@ -14,6 +14,10 @@ const postSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
+    origin: {
+        type: Schema.Types.ObjectId,
+        ref: "Post"
+    },
     replies: [{
         type: Schema.Types.ObjectId,
         ref: "Post"
