@@ -10,6 +10,9 @@ const imageSchema = new Schema({
     img_data: {
         data: Buffer,
         contentType: String
+    },
+    uploadedBy: {
+        type: Schema.Types.ObjectId, ref: "User"
     }
 })
 
