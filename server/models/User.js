@@ -2,29 +2,53 @@ const { Schema, model } = require("mongoose");
 const { hash, compare } = require("bcrypt");
 
 const userSchema = new Schema(
-  {
-    email: {
-      type: String,
-      unique: true,
-      validate: {
-        validator(val) {
-          return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(val);
+    {
+        username:{
+            type: String,
+            unique: true,
+            trim: true
+
         },
-        message() {
-          return "Please enter a valid email address.";
+        email: {
+            type: String,
+            unique: true,
+            validate: {
+                validator(val) {
+                    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(val);
+                },
+                message() {
+                    return "Please enter a valid email address.";
+                },
+            },
         },
-      },
+        password: {
+            type: String,
+            minLength: [6, "Your password must be at least 6 characters in length"],
+        },
+        collections: [{
+            type: Schema.Types.ObjectId,
+            ref: "Collection"
+        }],
+        products: [{
+            type: Schema.Types.ObjectId,
+            ref: "Product"
+        }],
+        posts: [{
+            type: Schema.Types.ObjectId,
+            ref: "Post"
+        }],
+        direct_messages: [{
+            type: Schema.Types.ObjectId,
+            ref: "DirectMessage"
+        }],
     },
-    password: {
-      type: String,
-      minLength: [6, "Your password must be at least 6 characters in length"],
-    },
-  },
-  {
-    timestamps: true,
-    methods: {
-      async validatePass(formPassword) {
-        const is_valid = await compare(formPassword, this.password);
+    {
+        timestamps: true,
+        methods: {
+            async validatePass(formPassword) {
+                const is_valid = await compare(formPassword, this.password);
+
+
 
         return is_valid;
       },
@@ -40,11 +64,11 @@ const userSchema = new Schema(
 );
 
 userSchema.pre("save", async function (next) {
-  if (this.isNew) {
-    this.password = await hash(this.password, 10);
-  }
+    if (this.isNew) {
+        this.password = await hash(this.password, 10);
+    }
 
-  next();
+    next();
 });
 
 const User = model("User", userSchema);
