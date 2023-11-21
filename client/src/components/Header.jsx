@@ -19,7 +19,7 @@ function Header({ user, setUser }) {
   }
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary bg-warning-subtle">
       <Container>
         <Navbar.Brand href="/"><img
           src="/img/logo.png"

@@ -13,7 +13,7 @@ function Footer() {
 
 
   return (
-    <footer className="bg-warning-subtle text-black fixed-bottom">
+    <footer className="bg-warning-subtle text-black pt-3 pb-3">
       <div className="container">
         <div className="row align-items-center justify-content-center">
           <div className="col-auto ">
