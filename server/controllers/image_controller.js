@@ -11,18 +11,25 @@ const image_controller = {
     },
 
     getImageById(req, res) {
-        //Unfinished
+        const image = Image.findOne({where: {_id: req.params.image_id}})
+        res.json(image)
     },
 
     getImagesByUser(req, res) {
-        //Unfinished
+        const images = Image.find({where: {uploadedBy: req.params.user_id}})
+        res.json(images)
     },
 
     getImagesOfProduct(req, res) {
-        //Unfinished
+        const images = Image.find({where: {product: req.params.product_id}})
+        res.json(images)
     },
 
     blankOutImage(req, res) {
-        //Unfinished
+        const blank = Image.findOne({name: 'blankImage'})
+        const image = Image.updateOne({_id: req.params.image_id}, {img_data: blank.img_data})
+        res.json(image)
     }
 }
+
+module.exports = {image_controller}
