@@ -11,6 +11,7 @@ import CartProvider from './CartContext'
 
 import Header from './components/Header'
 import NavbarComponent from "./components/Navbar";
+import Footer from './components/Footer'
 
 // import pages
 import Auth from './pages/Auth'
@@ -74,6 +75,7 @@ function App() {
             </Container>
           </CartProvider>
 
+            <Footer />
         </>
       )}
     </>
