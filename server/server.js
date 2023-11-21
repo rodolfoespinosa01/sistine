@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3553;
 require("dotenv").config();
 
 const user_routes = require("./routes/user_routes");
+const artwork_routes = require("./routes/artwork_routes");
 
 const db = require("./config/connection");
 
@@ -22,33 +23,7 @@ app.use(cookieParser());
 
 // Load Routes
 app.use("/auth", user_routes);
-
-// // Setup checkout request
-// app.post("/checkout", async (req, res) => {
-//   console.log(req.body);
-
-//   const items = req.body.items;
-//   let lineItems = [];
-//   items.forEach((item) => {
-//     lineItems.push({
-//       price: item.id,
-//       quantity: item.quantity,
-//     });
-//   });
-
-//   const session = await stripe.checkout.session.create({
-//     line_items: lineItems,
-//     mode: "payment",
-//     success_url: "http://localhost:5173/paymentcomplete",
-//     cancel_url: "http://localhost:5173/cancel",
-//   });
-
-//   res.send(
-//     JSON.stringify({
-//       url: session.url,
-//     })
-//   );
-// });
+app.use("/auth", artwork_routes);
 
 // Validate that the mongoose connection is complete
 db.once("open", () => {
