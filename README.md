@@ -59,6 +59,7 @@ If you have any questions or need further assistance, feel free to reach out to 
 
 [Ro](https://github.com/rodolfoespinosa01) <br>
 [CoreyPhillipsOfficial](https://github.com/CoreyPhillipsOfficial) <br>
+[BrianJohnMaher](https://github.com/BrianJohnMaher) <br>
 
 
 ## [Project repo](https://lit-beach-80573-72943f4d2381.herokuapp.com/)
