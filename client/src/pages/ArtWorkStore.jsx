@@ -27,9 +27,17 @@ function Store({ user }) {
           </Row>
         </>
       ) : (
-        <h1 align="center" className="p-3 font-class">
-          Welcome, please login or register to enter the store.
-        </h1>
+
+   
+
+        <>
+          <div align="center" className="p-3">
+            <h1>Please login or register to enter the store.</h1>
+            <img src="/img/sistineLanding.png" alt="" className="img-fluid" />
+          </div>
+        </>
+
+
       )}
     </>
   );
