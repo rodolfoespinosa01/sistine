@@ -4,6 +4,8 @@ const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3553;
+const is_prod = process.env.NODE_ENV === "production";
+const path = require("path");
 
 require("dotenv").config();
 
@@ -17,38 +19,23 @@ app.use(express.static("public"));
 // Open channel for JSON to be sent from client
 app.use(express.json());
 
+// Share dist when in production
+if (is_prod) {
+  app.use(express.static(path.join(__dirname, "../client/dist")));
+}
+
 // Open cookie middleware channel so we can view cookies on the request object
 app.use(cookieParser());
 
 // Load Routes
 app.use("/auth", user_routes);
 
-// // Setup checkout request
-// app.post("/checkout", async (req, res) => {
-//   console.log(req.body);
-
-//   const items = req.body.items;
-//   let lineItems = [];
-//   items.forEach((item) => {
-//     lineItems.push({
-//       price: item.id,
-//       quantity: item.quantity,
-//     });
-//   });
-
-//   const session = await stripe.checkout.session.create({
-//     line_items: lineItems,
-//     mode: "payment",
-//     success_url: "http://localhost:5173/paymentcomplete",
-//     cancel_url: "http://localhost:5173/cancel",
-//   });
-
-//   res.send(
-//     JSON.stringify({
-//       url: session.url,
-//     })
-//   );
-// });
+// Trigger react router to handle all routing outside of our auth routes
+if (is_prod) {
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+  });
+}
 
 // Validate that the mongoose connection is complete
 db.once("open", () => {
