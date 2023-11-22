@@ -20,6 +20,11 @@ const artWorkSchema = new Schema({
       message: "Please enter a valid URL for the artwork.",
     },
   },
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 
 const ArtWork = model("ArtWork", artWorkSchema);
