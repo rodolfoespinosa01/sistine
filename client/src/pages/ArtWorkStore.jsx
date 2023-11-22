@@ -4,12 +4,14 @@ import { artWorksArray } from '../artWorkStore'
 
 import ArtWorkCard from '../components/ArtWorkCard'
 
+import '../index.css';
+
 function Store({ user }) {
   return (
     <>
       {user ? (
         <>
-          <h1 align="center" className="p-3">
+          <h1 align="center" className="p-3 font-class2">
             Welcome to the store!
           </h1>
 
@@ -25,12 +27,16 @@ function Store({ user }) {
           </Row>
         </>
       ) : (
+
+   
+
         <>
           <div align="center" className="p-3">
             <h1>Please login or register to enter the store.</h1>
             <img src="/img/sistineLanding.png" alt="" className="img-fluid" />
           </div>
         </>
+
 
       )}
     </>

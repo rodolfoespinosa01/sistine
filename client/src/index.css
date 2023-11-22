@@ -17,13 +17,25 @@ html, body, #root {
 .btn-custom {
     background-color: #d9d9d9;
     color: black; 
-    border: 1px solid black; 
+    border: 1px solid gray; 
     transition: background-color 0.3s; 
   }
   
   .btn-custom:hover {
     background-color: #f2eabf;
-    border: 1px solid black; 
+    border: 1px solid gray; 
     color: black;
     
+  }
+
+  .font-class {
+    font-family: 'cursive-font', cursive, 'Arial', sans-serif;
+    font-size: 40px;
+    color: #222;
+  }
+
+  .font-class2 {
+    font-family: 'cursive-font', cursive, 'Arial', sans-serif;
+    font-size: 30px;
+    color: #222;
   }
