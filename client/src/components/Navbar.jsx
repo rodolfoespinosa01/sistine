@@ -62,7 +62,7 @@ function NavbarComponent() {
 
               <h1>Total: {cart.getTotalCost().toFixed(2)}</h1>
 
-              <Button variant="success" onClick={checkout} className='btn btn-custom'>
+              <Button className='btn btn-custom' onClick={checkout} >
                 Purchase items!
               </Button>
 

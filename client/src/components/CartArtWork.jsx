@@ -3,6 +3,8 @@ import { CartContext } from '../CartContext';
 import { useContext } from 'react';
 import { getArtWorkData } from '../artWorkStore'
 
+import '../index.css';
+
 function CartArtWork(props) {
   const cart = useContext(CartContext);
   const id = props.id;
@@ -14,7 +16,7 @@ function CartArtWork(props) {
       <h3>{artWorkData.title}</h3>
       <p>{quantity} total</p>
       <p>${(quantity * artWorkData.price).toFixed(2)}</p>
-      <Button size="sm" onClick={() => cart.deleteFromCart(id)}>Remove</Button>
+      <Button className='btn btn-custom' size="sm" onClick={() => cart.deleteFromCart(id)}>Remove</Button>
       <hr />
     </>
   )
