@@ -66,21 +66,21 @@ export function CartProvider({ children }) {
   }
 
   function removeOneFromCart(id) {
-    const quanity = getArtWorkQuantity(id)
+    const quantity = getArtWorkQuantity(id)
 
     // handle what you do if you delete one product when there is only just one in the cart
     if (quantity == 1) {
       deleteFromCart(id)
     } else {
       setCartArtWorks(
-        setCartArtWorks(
-          cartArtWorks.map(
-            artWork =>
-              artWork.id === id ? { ...artWork, quantity: artWork.quantity - 1 } //logic to remove one from quantity
-                : artWork
-          )
+
+        cartArtWorks.map(
+          artWork =>
+            artWork.id === id ? { ...artWork, quantity: artWork.quantity - 1 } //logic to remove one from quantity
+              : artWork
         )
       )
+
     }
   }
 
