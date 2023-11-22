@@ -3,6 +3,7 @@ import { Button, Navbar, Modal, ModalBody } from 'react-bootstrap'
 import { useContext, useState } from 'react'
 import { CartContext } from '../CartContext'
 import CartArtWork from './CartArtWork'
+import '../index.css';
 
 function NavbarComponent() {
   const cart = useContext(CartContext);
@@ -36,7 +37,7 @@ function NavbarComponent() {
         <Navbar.Brand href="/"></Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end ">
-          <Button onClick={handleShow}>Cart ({artWorksCount})</Button>
+          <Button onClick={handleShow} className='btn btn-custom' >Cart ({artWorksCount})</Button>
         </Navbar.Collapse>
       </Navbar>
 
@@ -61,7 +62,7 @@ function NavbarComponent() {
 
               <h1>Total: {cart.getTotalCost().toFixed(2)}</h1>
 
-              <Button variant="success" onClick={checkout}>
+              <Button variant="success" onClick={checkout} className='btn btn-custom'>
                 Purchase items!
               </Button>
 

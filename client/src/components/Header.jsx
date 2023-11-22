@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import { NavLink, useNavigate } from 'react-router-dom';
 
+
 function Header({ user, setUser }) {
   const navigate = useNavigate();
 
@@ -17,13 +18,9 @@ function Header({ user, setUser }) {
   };
 
   const headerStyle = {
-    backgroundImage: "url('../../public/img/hero-resized-text.png')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
     paddingBottom: '325px',
     margin: '0 auto',
-    maxWidth: '1200px'
+    maxWidth: '1200px',
   };
 
   const navBarStyle = {
@@ -31,7 +28,7 @@ function Header({ user, setUser }) {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     margin: '0 auto',
-    maxWidth: '1200px'
+    maxWidth: '1200px',
   };
 
   const buttonStyle = {
@@ -41,10 +38,12 @@ function Header({ user, setUser }) {
 
   return (
     <div>
-      <div style={headerStyle}>
-        {/* Hero Image */}
-      </div>
-      <Navbar expand="lg" className="bg-body-tertiary bg-warning-subtle" style={navBarStyle}>
+      <a href="/" style={{ textDecoration: 'none' }}> {/* Added anchor tag with link */}
+        <div style={{ ...headerStyle, backgroundImage: "url('/img/hero-resized-text.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+          {/* Hero Image */}
+        </div>
+      </a>
+      <Navbar expand="lg" className="bg-body-tertiary bg-warning-subtle mb-3" style={navBarStyle}>
         <Container fluid className='mx-auto'>
           <Nav className="ms-auto" style={buttonStyle}>
             {user ? (
