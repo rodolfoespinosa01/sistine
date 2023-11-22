@@ -49,7 +49,7 @@ function Header({ user, setUser }) {
             {user ? (
               <>
                 <Nav.Item>
-                  <p>{user.email}</p>
+                  <p className='text-left text-md-center me-5'>Hi, {user.email}</p>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link href="/logout" onClick={logout}>

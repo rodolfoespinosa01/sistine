@@ -1,4 +1,4 @@
-# Sistine[(License: MIT)](https://img.shields.io/badge/License-MIT-yellow.svg)
+# Sistine ![License](https://img.shields.io/badge/License-MIT-yellow) ![License](https://img.shields.io/badge/Vite-v5.0.2-purple) ![License](https://img.shields.io/badge/Stripe-v14.5.0-blue) ![License](https://img.shields.io/badge/Mongoose-v8.0.1-darkred) ![License](https://img.shields.io/badge/Bootstrap-v5.3.2-indigo)
 
 ## Description
 
@@ -39,7 +39,8 @@ Sistine is designed to provide artists with a versatile platform for showcasing 
 
 ## License
 
-**This is under the MIT License**
+![License](https://img.shields.io/badge/License-MIT-yellow) <br>
+**This is under the MIT License** 
 
 ## Contributing
 
@@ -59,6 +60,6 @@ If you have any questions or need further assistance, feel free to reach out to 
 
 [Ro](https://github.com/rodolfoespinosa01) <br>
 [CoreyPhillipsOfficial](https://github.com/CoreyPhillipsOfficial) <br>
+[Ddurandev](https://github.com/ddurandev)
 
-
-## [Project repo](https://lit-beach-80573-72943f4d2381.herokuapp.com/)
+### [Project repo](https://lit-beach-80573-72943f4d2381.herokuapp.com/)

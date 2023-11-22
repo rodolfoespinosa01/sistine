@@ -45,7 +45,7 @@ function Auth({ isLogin, setUser }) {
 
   return (
     <Form onSubmit={handleSubmit} className="pt-5">
-      <h2 className="text-center">{isLogin ? 'Log In' : 'Register'}</h2>
+      <h2 className="text-center font-class2">{isLogin ? 'Log In' : 'Register'}</h2>
 
       {errorMessage && <p className="text-center text-danger mt-3">{errorMessage}</p>}
 
