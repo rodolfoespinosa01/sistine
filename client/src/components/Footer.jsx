@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
-import Sistine_S_icon from '../../public/img/Sistine_S_icon.png';
-import SistineBrush from '../../public/img/SistineBrush.png';
+import Sistine_S_icon from '/img/Sistine_S_icon.png';
+import SistineBrush from '/img/SistineBrush.png';
 
 function Footer() {
   const myStyle = {
@@ -19,7 +19,7 @@ function Footer() {
   
 
   return (
-      <footer className="bg-warning-subtle text-black pt-3 pb-3" style={myStyle3}>
+      <footer className="bg-warning-subtle text-black pt-3 pb-3 mt-5" style={myStyle3}>
         <div className="container">
           <div className="row align-items-center justify-content-center">
             <div className="col-auto ">

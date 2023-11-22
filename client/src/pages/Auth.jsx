@@ -4,6 +4,8 @@ import axios from 'axios'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
+import '../index.css';
+
 import { NavLink, useNavigate } from 'react-router-dom'
 
 const initialFormData = {
@@ -76,7 +78,7 @@ function Auth({ isLogin, setUser }) {
         <NavLink to="/login">Login</NavLink>
       </div>
 
-      <Button variant="primary" type="submit">
+      <Button className='btn btn-custom' type="submit">
         Submit
       </Button>
     </Form>
