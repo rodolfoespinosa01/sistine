@@ -20,4 +20,6 @@ router.get("/authenticate", user_controller.authenticate);
 
 router.get("/logout", user_controller.logout);
 
+router.get("/users", user_controller.getAllUsers);
+
 module.exports = router;

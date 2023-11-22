@@ -122,6 +122,17 @@ const user_controller = {
     }
   },
 
+  // Get All Users
+  async getAllUsers(req, res) {
+    try {
+      const allUsers = await User.find();
+
+      res.json(allUsers);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   logout(req, res) {
     res.clearCookie("token");
 
